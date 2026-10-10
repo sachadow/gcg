@@ -58,6 +58,10 @@ export default function Home() {
   useEffect(() => {
     set_sorted_cards(shown_cards.toSorted((a: Card, b: Card) => {
       let type = current_sort.type as keyof Card
+
+      if (type == "rarity")
+        return ((rarities.indexOf(a[type]) - rarities.indexOf(b[type])) * (current_sort.asc ? 1 : -1)) 
+
       if (!b[type])
         return 1
       if (!a[type])
@@ -70,6 +74,30 @@ export default function Home() {
       }))
   }, [shown_cards, current_sort])
 
+  useEffect(() => {
+    console.log(current_filter)
+    set_shown_cards(Cards.filter((card: Card) => {
+      for (const [k, value] of Object.entries(card)) {
+        let key = k as keyof Card
+        
+        if (current_filter[key] != "all" && current_filter[key] != null) {
+          if (value == null)
+            return false
+
+          if (Array.isArray(value)) {
+            if (!value.some((cardval) => cardval == current_filter[key]))
+              return false
+          }
+          else {
+            if (value != current_filter[key])
+              return false
+          }
+        }
+      }
+      return true
+    }))
+  }, [current_filter])
+
   const selectedSort = ((e: any) => {
     let new_sort: string = e.target.value
     set_current_sort({... current_sort, type: new_sort})
@@ -78,15 +106,10 @@ export default function Home() {
     set_current_sort({... current_sort, asc: !current_sort.asc})
   })
 
-  const selectedSource = ((e: any) =>
+  const selectedFilter = ((key: string, e: any) =>
   {
     let new_source: string = e.target.value
-    if (new_source == "all")
-    {
-      set_shown_cards(Cards)
-      return
-    }
-    set_shown_cards(Cards.filter((card) => card.source == new_source))
+    set_current_filter({...current_filter, [key]: new_source})
   })
 
   return (
@@ -94,7 +117,15 @@ export default function Home() {
       <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
         <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
           <span>
-            Series: <select defaultValue="all" onChange={selectedSource}>
+            Color: <select defaultValue="all" onChange={(e) => selectedFilter("color", e)}>
+              <option value="all">All</option>
+              {colors.map((color) =>
+                <option key={color} value={color}>{color}</option>
+              )}
+            </select>
+          </span>
+          <span>
+            Series: <select defaultValue="all" onChange={(e) => selectedFilter("source", e)}>
               <option value="all">All</option>
               {sources.map((source) =>
                 <option key={source} value={source}>{source}</option>
@@ -115,8 +146,11 @@ export default function Home() {
               <option value="hp">HP</option>
               <option value="source">Source</option>
             </select>
+            <button onClick={changeSortAsc}>{current_sort.asc ? "Ascending" : "Descending"}</button>
           </span>
+          
           <br/>
+          {shown_cards.length} results
         </div>
         <div className="flex flex-row flex-wrap" style={{gap: "1%"}}>
           {sorted_cards.map((card) => <CardComponent key={card.full_id} card={card}/>)}
