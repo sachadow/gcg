@@ -11,9 +11,9 @@ export default function CardComponent({card}: {card: Card}) {
         <div className="card_text_container">
             <div className="flex flex-row justify-between">
                 <div className={"cost_level_container p-1 pl-2 pr-1.5 " + card.color}>
-                    <span className={"level_text " + card.color}>L{card.level}</span>
+                    <span className={"level_text " + card.color}>L{card.level ?? 0}</span>
                     <br/>
-                    <span className={"cost_text " + card.color}>C{card.cost}</span>
+                    <span className={"cost_text " + card.color}>C{card.cost ?? 0}</span>
                 </div>
                 <div className={"type_container relative type_text p-1 pl-0.5 pr-0.5 " + card.color}>
                     {card.type}

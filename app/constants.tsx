@@ -18,3 +18,8 @@ export interface Card {
   image_link?: string | null,
   illustrator?: string | null
 }
+
+export interface Option {
+  value: string | number,
+  label: string
+}

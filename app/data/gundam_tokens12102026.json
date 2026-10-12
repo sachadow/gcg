@@ -1,0 +1,705 @@
+[
+    {
+        "set": "T",
+        "set_number": "001",
+        "full_id": "T-001",
+        "rarity": "C",
+        "name": "Gundam",
+        "level": null,
+        "cost": null,
+        "color": "-",
+        "type": "UNIT TOKEN",
+        "effects": [
+            "-"
+        ],
+        "zones": [
+            "-"
+        ],
+        "traits": [
+            "White Base Team"
+        ],
+        "link": [],
+        "ap": 3,
+        "hp": 3,
+        "source": "Mobile Suit Gundam",
+        "image_link": "https://www.gundam-gcg.com/en/images/cards/card/T-001.webp?261001",
+        "illustrator": "KENKO"
+    },
+    {
+        "set": "T",
+        "set_number": "002",
+        "full_id": "T-002",
+        "rarity": "C",
+        "name": "Guncannon",
+        "level": null,
+        "cost": null,
+        "color": "-",
+        "type": "UNIT TOKEN",
+        "effects": [
+            "-"
+        ],
+        "zones": [
+            "-"
+        ],
+        "traits": [
+            "White Base Team"
+        ],
+        "link": [],
+        "ap": 2,
+        "hp": 2,
+        "source": "Mobile Suit Gundam",
+        "image_link": "https://www.gundam-gcg.com/en/images/cards/card/T-002.webp?261001",
+        "illustrator": "SOEZY"
+    },
+    {
+        "set": "T",
+        "set_number": "003",
+        "full_id": "T-003",
+        "rarity": "C",
+        "name": "Guntank",
+        "level": null,
+        "cost": null,
+        "color": "-",
+        "type": "UNIT TOKEN",
+        "effects": [
+            "-"
+        ],
+        "zones": [
+            "-"
+        ],
+        "traits": [
+            "White Base Team"
+        ],
+        "link": [],
+        "ap": 1,
+        "hp": 1,
+        "source": "Mobile Suit Gundam",
+        "image_link": "https://www.gundam-gcg.com/en/images/cards/card/T-003.webp?261001",
+        "illustrator": "SOEZY"
+    },
+    {
+        "set": "T",
+        "set_number": "004",
+        "full_id": "T-004",
+        "rarity": "C",
+        "name": "Leo",
+        "level": null,
+        "cost": null,
+        "color": "-",
+        "type": "UNIT TOKEN",
+        "effects": [
+            "-"
+        ],
+        "zones": [
+            "-"
+        ],
+        "traits": [
+            "OZ"
+        ],
+        "link": [],
+        "ap": 1,
+        "hp": 1,
+        "source": "Mobile Suit Gundam Wing",
+        "image_link": "https://www.gundam-gcg.com/en/images/cards/card/T-004.webp?261001",
+        "illustrator": "HIROPON"
+    },
+    {
+        "set": "T",
+        "set_number": "005",
+        "full_id": "T-005",
+        "rarity": "C",
+        "name": "Tallgeese",
+        "level": null,
+        "cost": null,
+        "color": "-",
+        "type": "UNIT TOKEN",
+        "effects": [
+            "-"
+        ],
+        "zones": [
+            "-"
+        ],
+        "traits": [
+            "OZ"
+        ],
+        "link": [],
+        "ap": 4,
+        "hp": 2,
+        "source": "Mobile Suit Gundam Wing",
+        "image_link": "https://www.gundam-gcg.com/en/images/cards/card/T-005.webp?261001",
+        "illustrator": "ISHIDA VAL"
+    },
+    {
+        "set": "T",
+        "set_number": "006",
+        "full_id": "T-006",
+        "rarity": "C",
+        "name": "Char's Zaku Ⅱ",
+        "level": null,
+        "cost": null,
+        "color": "-",
+        "type": "UNIT TOKEN",
+        "effects": [
+            "-"
+        ],
+        "zones": [
+            "-"
+        ],
+        "traits": [
+            "Zeon"
+        ],
+        "link": [],
+        "ap": 3,
+        "hp": 1,
+        "source": "Mobile Suit Gundam",
+        "image_link": "https://www.gundam-gcg.com/en/images/cards/card/T-006.webp?261001",
+        "illustrator": "K2 SHOUKAI"
+    },
+    {
+        "set": "T",
+        "set_number": "007",
+        "full_id": "T-007",
+        "rarity": "C",
+        "name": "Zaku Ⅱ",
+        "level": null,
+        "cost": null,
+        "color": "-",
+        "type": "UNIT TOKEN",
+        "effects": [
+            "-"
+        ],
+        "zones": [
+            "-"
+        ],
+        "traits": [
+            "Zeon"
+        ],
+        "link": [],
+        "ap": 1,
+        "hp": 1,
+        "source": "Mobile Suit Gundam",
+        "image_link": "https://www.gundam-gcg.com/en/images/cards/card/T-007.webp?261001",
+        "illustrator": "TAKUMI KOUSAKA"
+    },
+    {
+        "set": "T",
+        "set_number": "008",
+        "full_id": "T-008",
+        "rarity": "C",
+        "name": "Aile Strike Gundam",
+        "level": null,
+        "cost": null,
+        "color": "-",
+        "type": "UNIT TOKEN",
+        "effects": [
+            "<Blocker> (Rest this Unit to change the attack target to it.)"
+        ],
+        "zones": [
+            "-"
+        ],
+        "traits": [
+            "Earth Alliance"
+        ],
+        "link": [],
+        "ap": 3,
+        "hp": 3,
+        "source": "Mobile Suit Gundam SEED",
+        "image_link": "https://www.gundam-gcg.com/en/images/cards/card/T-008.webp?261001",
+        "illustrator": "HAYAKEN-SARENA"
+    },
+    {
+        "set": "T",
+        "set_number": "009",
+        "full_id": "T-009",
+        "rarity": "C",
+        "name": "Launcher Strike Gundam",
+        "level": null,
+        "cost": null,
+        "color": "-",
+        "type": "UNIT TOKEN",
+        "effects": [
+            "<Blocker> (Rest this Unit to change the attack target to it.)"
+        ],
+        "zones": [
+            "-"
+        ],
+        "traits": [
+            "Earth Alliance"
+        ],
+        "link": [],
+        "ap": 2,
+        "hp": 4,
+        "source": "Mobile Suit Gundam SEED",
+        "image_link": "https://www.gundam-gcg.com/en/images/cards/card/T-009.webp?261001",
+        "illustrator": "SAKUSAKU SAKURAI"
+    },
+    {
+        "set": "T",
+        "set_number": "010",
+        "full_id": "T-010",
+        "rarity": "C",
+        "name": "Sword Strike Gundam",
+        "level": null,
+        "cost": null,
+        "color": "-",
+        "type": "UNIT TOKEN",
+        "effects": [
+            "<Blocker> (Rest this Unit to change the attack target to it.)"
+        ],
+        "zones": [
+            "-"
+        ],
+        "traits": [
+            "Earth Alliance"
+        ],
+        "link": [],
+        "ap": 4,
+        "hp": 2,
+        "source": "Mobile Suit Gundam SEED",
+        "image_link": "https://www.gundam-gcg.com/en/images/cards/card/T-010.webp?261001",
+        "illustrator": "ILSHIMA060123"
+    },
+    {
+        "set": "T",
+        "set_number": "011",
+        "full_id": "T-011",
+        "rarity": "C",
+        "name": "Fatum-00",
+        "level": null,
+        "cost": null,
+        "color": "-",
+        "type": "UNIT TOKEN",
+        "effects": [
+            "<Blocker> (Rest this Unit to change the attack target to it.)"
+        ],
+        "zones": [
+            "-"
+        ],
+        "traits": [
+            "Triple Ship Alliance"
+        ],
+        "link": [],
+        "ap": 2,
+        "hp": 2,
+        "source": "Mobile Suit Gundam SEED",
+        "image_link": "https://www.gundam-gcg.com/en/images/cards/card/T-011.webp?261001",
+        "illustrator": "SAKUSAKU SAKURAI"
+    },
+    {
+        "set": "T",
+        "set_number": "012",
+        "full_id": "T-012",
+        "rarity": "C",
+        "name": "Daughtress",
+        "level": null,
+        "cost": null,
+        "color": "-",
+        "type": "UNIT TOKEN",
+        "effects": [
+            "-"
+        ],
+        "zones": [
+            "-"
+        ],
+        "traits": [
+            "New UNE"
+        ],
+        "link": [],
+        "ap": null,
+        "hp": 1,
+        "source": "After War Gundam X",
+        "image_link": "https://www.gundam-gcg.com/en/images/cards/card/T-012.webp?261001",
+        "illustrator": "DENJO"
+    },
+    {
+        "set": "T",
+        "set_number": "013",
+        "full_id": "T-013",
+        "rarity": "C",
+        "name": "Hy-Gogg",
+        "level": null,
+        "cost": null,
+        "color": "-",
+        "type": "UNIT TOKEN",
+        "effects": [
+            "-"
+        ],
+        "zones": [
+            "-"
+        ],
+        "traits": [
+            "Zeon"
+        ],
+        "link": [],
+        "ap": 2,
+        "hp": 1,
+        "source": "Mobile Suit Gundam 0080: War in the Pocket",
+        "image_link": "https://www.gundam-gcg.com/en/images/cards/card/T-013.webp?261001",
+        "illustrator": "HIROSHI AYARAGI"
+    },
+    {
+        "set": "T",
+        "set_number": "014",
+        "full_id": "T-014",
+        "rarity": "C",
+        "name": "Ad Balloon",
+        "level": null,
+        "cost": null,
+        "color": "-",
+        "type": "UNIT TOKEN",
+        "effects": [
+            "This Unit can't be set as active or paired with a Pilot."
+        ],
+        "zones": [
+            "-"
+        ],
+        "traits": [
+            "Civilian"
+        ],
+        "link": [],
+        "ap": null,
+        "hp": 1,
+        "source": "Mobile Suit Gundam 0080: War in the Pocket",
+        "image_link": "https://www.gundam-gcg.com/en/images/cards/card/T-014.webp?261001",
+        "illustrator": "KAZUYUKI HAYASHI"
+    },
+    {
+        "set": "T",
+        "set_number": "015",
+        "full_id": "T-015",
+        "rarity": "C",
+        "name": "CGS Mobile Worker",
+        "level": null,
+        "cost": null,
+        "color": "-",
+        "type": "UNIT TOKEN",
+        "effects": [
+            "-"
+        ],
+        "zones": [
+            "-"
+        ],
+        "traits": [
+            "Tekkadan"
+        ],
+        "link": [],
+        "ap": 1,
+        "hp": 1,
+        "source": "Mobile Suit Gundam IRON-BLOODED ORPHANS",
+        "image_link": "https://www.gundam-gcg.com/en/images/cards/card/T-015.webp?261001",
+        "illustrator": "TAKUYA IO"
+    },
+    {
+        "set": "T",
+        "set_number": "016",
+        "full_id": "T-016",
+        "rarity": "C",
+        "name": "Graze Custom",
+        "level": null,
+        "cost": null,
+        "color": "-",
+        "type": "UNIT TOKEN",
+        "effects": [
+            "-"
+        ],
+        "zones": [
+            "-"
+        ],
+        "traits": [
+            "Tekkadan"
+        ],
+        "link": [],
+        "ap": 2,
+        "hp": 2,
+        "source": "Mobile Suit Gundam IRON-BLOODED ORPHANS",
+        "image_link": "https://www.gundam-gcg.com/en/images/cards/card/T-016.webp?261001",
+        "illustrator": "J.YUZURU"
+    },
+    {
+        "set": "T",
+        "set_number": "017",
+        "full_id": "T-017",
+        "rarity": "C",
+        "name": "Gundam Barbatos 4th Form",
+        "level": null,
+        "cost": null,
+        "color": "-",
+        "type": "UNIT TOKEN",
+        "effects": [
+            "-"
+        ],
+        "zones": [
+            "-"
+        ],
+        "traits": [
+            "Tekkadan"
+        ],
+        "link": [],
+        "ap": 4,
+        "hp": 4,
+        "source": "Mobile Suit Gundam IRON-BLOODED ORPHANS",
+        "image_link": "https://www.gundam-gcg.com/en/images/cards/card/T-017.webp?261001",
+        "illustrator": "AMASAKI"
+    },
+    {
+        "set": "T",
+        "set_number": "018",
+        "full_id": "T-018",
+        "rarity": "C",
+        "name": "Red Gundam",
+        "level": null,
+        "cost": null,
+        "color": "-",
+        "type": "UNIT TOKEN",
+        "effects": [
+            "-"
+        ],
+        "zones": [
+            "-"
+        ],
+        "traits": [
+            "Clan"
+        ],
+        "link": [],
+        "ap": 2,
+        "hp": 3,
+        "source": "Mobile Suit Gundam GQuuuuuuX",
+        "image_link": "https://www.gundam-gcg.com/en/images/cards/card/T-018.webp?261001",
+        "illustrator": "J.YUZURU"
+    },
+    {
+        "set": "T",
+        "set_number": "019",
+        "full_id": "T-019",
+        "rarity": "C",
+        "name": "GQuuuuuuX (Omega Psycommu)",
+        "level": null,
+        "cost": null,
+        "color": "-",
+        "type": "UNIT TOKEN",
+        "effects": [
+            "-"
+        ],
+        "zones": [
+            "-"
+        ],
+        "traits": [
+            "Clan"
+        ],
+        "link": [],
+        "ap": 3,
+        "hp": 2,
+        "source": "Mobile Suit Gundam GQuuuuuuX",
+        "image_link": "https://www.gundam-gcg.com/en/images/cards/card/T-019.webp?261001",
+        "illustrator": "YUUIGUCHI"
+    },
+    {
+        "set": "T",
+        "set_number": "020",
+        "full_id": "T-020",
+        "rarity": "C",
+        "name": "GFreD",
+        "level": null,
+        "cost": null,
+        "color": "-",
+        "type": "UNIT TOKEN",
+        "effects": [
+            "-"
+        ],
+        "zones": [
+            "-"
+        ],
+        "traits": [
+            "Zeon"
+        ],
+        "link": [],
+        "ap": 4,
+        "hp": 3,
+        "source": "Mobile Suit Gundam GQuuuuuuX",
+        "image_link": "https://www.gundam-gcg.com/en/images/cards/card/T-020.webp?261001",
+        "illustrator": "TOMO"
+    },
+    {
+        "set": "T",
+        "set_number": "021",
+        "full_id": "T-021",
+        "rarity": "C",
+        "name": "Parts",
+        "level": null,
+        "cost": null,
+        "color": "-",
+        "type": "UNIT TOKEN",
+        "effects": [
+            "This Unit can't choose the enemy player as its attack target."
+        ],
+        "zones": [
+            "-"
+        ],
+        "traits": [
+            "League Militaire"
+        ],
+        "link": [],
+        "ap": 1,
+        "hp": 1,
+        "source": "Mobile Suit V Gundam",
+        "image_link": "https://www.gundam-gcg.com/en/images/cards/card/T-021.webp?261001",
+        "illustrator": "TAKUYA IO"
+    },
+    {
+        "set": "T",
+        "set_number": "022",
+        "full_id": "T-022",
+        "rarity": "C",
+        "name": "Wire-Guided Arm",
+        "level": null,
+        "cost": null,
+        "color": "-",
+        "type": "UNIT TOKEN",
+        "effects": [
+            "This Unit can't be paired with a Pilot."
+        ],
+        "zones": [
+            "-"
+        ],
+        "traits": [
+            "Zeon"
+        ],
+        "link": [],
+        "ap": 2,
+        "hp": 1,
+        "source": "Mobile Suit Gundam",
+        "image_link": "https://www.gundam-gcg.com/en/images/cards/card/T-022.webp?261001",
+        "illustrator": "J.YUZURU"
+    },
+    {
+        "set": "T",
+        "set_number": "023",
+        "full_id": "T-023",
+        "rarity": "C",
+        "name": "Zeong (Head)",
+        "level": null,
+        "cost": null,
+        "color": "-",
+        "type": "UNIT TOKEN",
+        "effects": [
+            "-"
+        ],
+        "zones": [
+            "-"
+        ],
+        "traits": [
+            "Zeon"
+        ],
+        "link": [],
+        "ap": 3,
+        "hp": 1,
+        "source": "Mobile Suit Gundam",
+        "image_link": "https://www.gundam-gcg.com/en/images/cards/card/T-023.webp?261001",
+        "illustrator": "J.YUZURU"
+    },
+    {
+        "set": "T",
+        "set_number": "024",
+        "full_id": "T-024",
+        "rarity": "C",
+        "name": "Alvaaron",
+        "level": null,
+        "cost": null,
+        "color": "-",
+        "type": "UNIT TOKEN",
+        "effects": [
+            "-"
+        ],
+        "zones": [
+            "-"
+        ],
+        "traits": [
+            "UN"
+        ],
+        "link": [],
+        "ap": 4,
+        "hp": 1,
+        "source": "Mobile Suit Gundam 00",
+        "image_link": "https://www.gundam-gcg.com/en/images/cards/card/T-024.webp?261001",
+        "illustrator": "TAKUYA IO"
+    },
+    {
+        "set": "T",
+        "set_number": "026",
+        "full_id": "T-026",
+        "rarity": "C",
+        "name": "Gundnode",
+        "level": null,
+        "cost": null,
+        "color": "-",
+        "type": "UNIT TOKEN",
+        "effects": [
+            "<Breach 1> (During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)"
+        ],
+        "zones": [
+            "-"
+        ],
+        "traits": [
+            "Quiet Zero"
+        ],
+        "link": [],
+        "ap": 2,
+        "hp": 2,
+        "source": "Mobile Suit Gundam the Witch from Mercury",
+        "image_link": "https://www.gundam-gcg.com/en/images/cards/card/T-026.webp?261001",
+        "illustrator": "DENJO"
+    },
+    {
+        "set": "T",
+        "set_number": "027",
+        "full_id": "T-027",
+        "rarity": "C",
+        "name": "Pluma",
+        "level": null,
+        "cost": null,
+        "color": "-",
+        "type": "UNIT TOKEN",
+        "effects": [
+            "-"
+        ],
+        "zones": [
+            "-"
+        ],
+        "traits": [
+            "Calamity War"
+        ],
+        "link": [],
+        "ap": 2,
+        "hp": 1,
+        "source": "Mobile Suit Gundam: Iron-Blooded Orphans",
+        "image_link": "https://www.gundam-gcg.com/en/images/cards/card/T-027.webp?261001",
+        "illustrator": "J.YUZURU"
+    },
+    {
+        "set": "T",
+        "set_number": "028",
+        "full_id": "T-028",
+        "rarity": "C",
+        "name": "GOOhN",
+        "level": null,
+        "cost": null,
+        "color": "-",
+        "type": "UNIT TOKEN",
+        "effects": [
+            "-"
+        ],
+        "zones": [
+            "-"
+        ],
+        "traits": [
+            "ZAFT",
+            "Marine"
+        ],
+        "link": [],
+        "ap": 1,
+        "hp": 1,
+        "source": "Mobile Suit Gundam SEED",
+        "image_link": "https://www.gundam-gcg.com/en/images/cards/card/T-028.webp?261001",
+        "illustrator": "S KEI"
+    }
+]
