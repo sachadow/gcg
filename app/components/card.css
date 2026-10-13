@@ -44,6 +44,8 @@
 }
 
 .name_text {
+    width: 70%;
+
     color: white;
     position: relative;
     font-weight: bold;
@@ -59,6 +61,9 @@
 }
 
 .stats_container {
+    position:absolute;
+    right: 0;
+    bottom: 0;
     color: white;
     width: fit-content;
     font-weight: bold;

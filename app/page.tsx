@@ -2,12 +2,13 @@
 import { useState, useEffect } from "react";
 import { MultiSelect } from "react-multi-select-component-19";
 
-import Cards from "@/app/data/gundam_cards101026.json";
+import Cards from "@/app/data/gundam_cards13102026.json";
 import Tokens from "@/app/data/gundam_tokens12102026.json";
 import { Card, Option } from "@/app/constants";
 import CardComponent from "./components/card";
 
 import "./page.css";
+import CardLargeComponent from "./components/card_large";
 
 interface Sorter {
   type: string,
@@ -39,7 +40,7 @@ const emptyFilter = {
 }
 
 export default function Home() {
-  
+
   let sets: Array<string> = [... new Set(Cards.map((card) => card.set))]
   let colors: Array<string> = ["Blue", "Green", "Red", "Purple", "White"]
   let rarities: Array<string> = ["C", "U", "R", "LR"]
@@ -52,7 +53,8 @@ export default function Home() {
   let traits: Array<string> = [... new Set(Cards.flatMap((card) => card.traits))]
   traits.sort()
 
-  const [selected_sources, set_selected_sources] = useState([])
+  const [selected_card, set_selected_card] = useState({} as Card)
+  const [related_cards, set_related_cards] = useState([] as Card[])
 
   const [all_cards, set_all_cards] = useState([... Cards, ... Tokens])
 
@@ -117,7 +119,7 @@ export default function Home() {
 
   const selectedFilter = ((key: string, new_filter: Array<Option>) =>
   {
-    console.log(new_filter)
+    console.log(selected_card)
     set_current_filter({...current_filter, [key]: new_filter.map((filter: Option) => filter.value)})
   })
 
@@ -125,10 +127,49 @@ export default function Home() {
     set_all_cards(e.target.checked ? [... Cards, ...Tokens] : Cards)
   })
 
+  useEffect(() => {
+    if (!("full_id" in selected_card) || !selected_card["full_id"])
+      return
+
+    set_related_cards(all_cards.filter((card: Card) => {
+      if (Array.isArray(selected_card.link)) {
+        if (selected_card.type == "UNIT")
+          return (card.type == "PILOT" &&
+            selected_card.link.some((link_condition: string) =>
+            card.name.includes(link_condition) ||
+            card.traits!.some((trait: string) => link_condition == trait ||
+            card.effects!.some((effect: string) => effect.includes("This card's name is also treated as") && effect.includes(link_condition))))
+            || 
+            (card.type == "COMMAND" &&
+              selected_card.link.some((link_condition: string) => 
+              (card.traits!.some((trait: string) => link_condition == trait && (card.ap || card.hp)) ||
+              card.effects!.some((effect: string) => effect.includes("【Pilot】") && effect.includes(link_condition))
+            ))))
+        else
+          return card.type == "UNIT" &&
+            card.link!.some((link_condition: string) =>
+            selected_card.name.includes(link_condition) ||
+            selected_card.traits!.some((trait: string) => link_condition == trait ||
+            selected_card.effects!.some((effect: string) => (effect.includes("This card's name is also treated as") || effect.includes("【Pilot】")) && effect.includes(link_condition))
+          ))
+      }
+      return false
+    }))
+  }, [selected_card])
+
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-5xl flex-col items-center">
-        <div className="flex flex-col" style={{width: "100%"}}>
+      <main className="flex flex-1 flex-col items-center w-[1024px] max-w-[95%] mt-5 mb-5">
+        <div className="flex flex-col w-[100%]" >
+          {"full_id" in selected_card && selected_card["full_id"] ?
+            <>
+              <CardLargeComponent card={selected_card as Card}/>
+              Cards this links with ({related_cards.length} results):
+              <div className="flex flex-row flex-wrap cards_container" style={{gap: "2px"}}>
+                {related_cards.map((card) => <CardComponent key={card.full_id} card={card}/>)}
+              </div>
+            </>
+          : ""}
           <div className="dropdown_parent_container">
             <span>
               Color: <MultiSelect
@@ -183,7 +224,7 @@ export default function Home() {
           {shown_cards.length} results
         </div>
         <div className="flex flex-row flex-wrap cards_container" style={{gap: "2px"}}>
-          {sorted_cards.map((card) => <CardComponent key={card.full_id} card={card}/>)}
+          {sorted_cards.map((card) => <CardComponent key={card.full_id} card={card} onCardClick={() => set_selected_card(card)}/>)}
         </div>
       </main>
     </div>
