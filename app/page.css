@@ -9,12 +9,6 @@
 }
 
 .cards_container {
-    justify-content: space-between;
-
-    &:after {
-        content: "";
-        flex: auto;
-    }
 }
 
 .dark_text {

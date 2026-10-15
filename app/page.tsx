@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { MultiSelect } from "react-multi-select-component-19";
 
-import Cards from "@/app/data/gundam_cards13102026.json";
+import Cards from "@/app/data/gundam_cards14102026.json";
 import Tokens from "@/app/data/gundam_tokens12102026.json";
 import { Card, Option } from "@/app/constants";
 import CardComponent from "./components/card";
@@ -55,8 +55,10 @@ export default function Home() {
 
   const [selected_card, set_selected_card] = useState({} as Card)
   const [related_cards, set_related_cards] = useState([] as Card[])
+  const [display_related, set_display_related] = useState(false)
 
-  const [all_cards, set_all_cards] = useState([... Cards, ... Tokens])
+
+  const [all_cards, set_all_cards] = useState(Cards as Card[])
 
   const [current_filter, set_current_filter] = useState(emptyFilter)
   const [current_sort, set_current_sort] = useState(emptySorter)
@@ -117,41 +119,63 @@ export default function Home() {
     set_current_sort({... current_sort, asc: !current_sort.asc})
   })
 
+  const changeDisplayRelated = (() => {
+    set_display_related(!display_related)
+  })
+
   const selectedFilter = ((key: string, new_filter: Array<Option>) =>
   {
-    console.log(selected_card)
     set_current_filter({...current_filter, [key]: new_filter.map((filter: Option) => filter.value)})
   })
 
   const includeTokens = ((e: any) => {
-    set_all_cards(e.target.checked ? [... Cards, ...Tokens] : Cards)
+    set_all_cards(e.target.checked ? [... Cards, ...Tokens] : [... Cards])
   })
 
   useEffect(() => {
     if (!("full_id" in selected_card) || !selected_card["full_id"])
       return
 
+    // this is a mess, my bad
     set_related_cards(all_cards.filter((card: Card) => {
       if (Array.isArray(selected_card.link)) {
         if (selected_card.type == "UNIT")
           return (card.type == "PILOT" &&
-            selected_card.link.some((link_condition: string) =>
-            card.name.includes(link_condition) ||
-            card.traits!.some((trait: string) => link_condition == trait ||
-            card.effects!.some((effect: string) => effect.includes("This card's name is also treated as") && effect.includes(link_condition))))
-            || 
+            selected_card.link.some((link_condition: string) => {
+              if (link_condition[0] == "[") {
+                link_condition = link_condition.slice(1, -1)
+                return card.name.includes(link_condition) ||
+                  card.effects!.some((effect: string) => effect.includes("This card's name is also treated as") && effect.includes(link_condition))
+              }
+              if (link_condition[0] == "(") {
+                link_condition = link_condition.split(" Trait")[0]
+                return card.traits!.some((trait: string) => link_condition == trait)
+              }
+            }) ||
             (card.type == "COMMAND" &&
-              selected_card.link.some((link_condition: string) => 
-              (card.traits!.some((trait: string) => link_condition == trait && (card.ap || card.hp)) ||
-              card.effects!.some((effect: string) => effect.includes("【Pilot】") && effect.includes(link_condition))
-            ))))
+              selected_card.link.some((link_condition: string) => {
+                if (link_condition[0] == "[") {
+                  link_condition = link_condition.slice(1, -1)
+                  return card.effects!.some((effect: string) => effect.includes("【Pilot】") && effect.includes(link_condition))
+                }
+                if (link_condition[0] == "(") {
+                  link_condition = link_condition.split(" Trait")[0]
+                  return card.traits!.some((trait: string) => link_condition == trait  && (card.ap || card.hp))
+                }
+              })))
         else
           return card.type == "UNIT" &&
-            card.link!.some((link_condition: string) =>
-            selected_card.name.includes(link_condition) ||
-            selected_card.traits!.some((trait: string) => link_condition == trait ||
-            selected_card.effects!.some((effect: string) => (effect.includes("This card's name is also treated as") || effect.includes("【Pilot】")) && effect.includes(link_condition))
-          ))
+            card.link!.some((link_condition: string) => {
+              if (link_condition[0] == "[") {
+                link_condition = link_condition.slice(1, -1)
+                return selected_card.name.includes(link_condition) ||
+                  selected_card.effects!.some((effect: string) => (effect.includes("This card's name is also treated as") || effect.includes("【Pilot】")) && effect.includes(link_condition))
+              }
+              if (link_condition[0] == "(") {
+                link_condition = link_condition.split(" Trait")[0]
+                return selected_card.traits!.some((trait: string) => link_condition == trait)
+              }
+            })
       }
       return false
     }))
@@ -164,10 +188,16 @@ export default function Home() {
           {"full_id" in selected_card && selected_card["full_id"] ?
             <>
               <CardLargeComponent card={selected_card as Card}/>
-              Cards this links with ({related_cards.length} results):
-              <div className="flex flex-row flex-wrap cards_container" style={{gap: "2px"}}>
-                {related_cards.map((card) => <CardComponent key={card.full_id} card={card}/>)}
-              </div>
+              <button onClick={changeDisplayRelated}>{display_related ? "Hide links" : "Display links"}</button>
+              {
+                display_related ?
+                  <>
+                    Cards this links with ({related_cards.length} results):
+                    <div className="flex flex-row flex-wrap cards_container" style={{gap: "2px"}}>
+                      {related_cards.map((card) => <CardComponent key={card.full_id} card={card} onCardClick={() => set_selected_card(card)}/>)}
+                    </div>
+                  </> : ""
+              }
             </>
           : ""}
           <div className="dropdown_parent_container">
@@ -216,7 +246,7 @@ export default function Home() {
             <button onClick={changeSortAsc}>{current_sort.asc ? "↑ Ascending" : "↓ Descending"}</button>
           </span>
           <span>
-            <input type='checkbox' id="tokens" defaultChecked onChange={includeTokens}/> 
+            <input type='checkbox' id="tokens" onChange={includeTokens}/> 
             <label htmlFor="tokens"> Include tokens</label>
           </span>
           
