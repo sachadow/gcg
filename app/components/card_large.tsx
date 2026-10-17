@@ -1,13 +1,13 @@
 import { Card } from "@/app/constants"
-import Image from "next/image"
 import "./card_large.css"
+import "@tailwindcss/turbopack"
 
 export default function CardLargeComponent({card}: {card: Card}) {
     return (
     <div className=" mb-5 flex flex-row gap-5">
         <div className="max-w-[300px] w-[50%]">
             <img src={"/img/" + card.full_id + ".webp"} alt={card.full_id} 
-                loading="lazy" height="1000" width="1000" className="w-full h-auto"/>
+                loading="lazy" className="w-full h-auto"/>
         </div>
         <div className="flex flex-col card-info-container justify-between w-[100%]">
             <div>

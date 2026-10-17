@@ -1,6 +1,6 @@
 import { Card } from "@/app/constants"
-import Image from "next/image"
 import "./card.css"
+import "@tailwindcss/turbopack"
 
 export default function CardComponent({card, onCardClick}: {card: Card, onCardClick?: Function}) {
     const noClick = () => {
@@ -10,7 +10,7 @@ export default function CardComponent({card, onCardClick}: {card: Card, onCardCl
         onCardClick = noClick
     
     return (
-    <div className="size-36 relative" onClick={() => onCardClick()}>
+    <div className="w-[144px] h-[144px] relative" onClick={() => onCardClick()}>
         <img src={"/img_thumb/" + card.full_id + ".webp"} alt={card.full_id} 
             loading="lazy"
             style={{position: "absolute", objectFit: "cover", objectPosition: "top -5px right 0px"}}/>

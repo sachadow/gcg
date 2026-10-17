@@ -8,6 +8,7 @@ import { Card, Option } from "@/app/constants";
 import CardComponent from "./components/card";
 
 import "./page.css";
+import "@tailwindcss/turbopack"
 import CardLargeComponent from "./components/card_large";
 
 interface Sorter {
