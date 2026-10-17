@@ -40,8 +40,8 @@ export default function CardLargeComponent({card}: {card: Card}) {
                     : ""
                 }
             </div>
-            
         </div>
+        <br/>
     </div>
   )
 }

@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from "react";
+import { useState, useEffect, useDeferredValue } from "react";
 import { MultiSelect } from "react-multi-select-component-19";
 
 import Cards from "@/app/data/gundam_cards17102026.json";
@@ -42,13 +42,14 @@ const emptyFilter = {
 export default function Home() {
 
   let sets: Array<string> = [... new Set(Cards.map((card) => card.set))]
+  sets.sort()
   let colors: Array<string> = ["Blue", "Green", "Red", "Purple", "White"]
   let rarities: Array<string> = ["C", "U", "R", "LR"]
   let sources: Array<string> = [... new Set(Cards.map((card) => card.source))]
   sources.sort()
   let illustrators: Array<string> = [... new Set(Cards.map((card) => card.illustrator))]
   illustrators = illustrators.sort().filter((val) => val != "")
-  let types: Array<string> = ["UNIT", "PILOT", "BASE", "COMMAND", "TOKEN"]
+  let types: Array<string> = ["UNIT", "PILOT", "BASE", "COMMAND", "UNIT TOKEN"]
   let zones: Array<string> = ["Space", "Earth"]
   let traits: Array<string> = [... new Set(Cards.flatMap((card) => card.traits))]
   traits.sort()
@@ -57,6 +58,8 @@ export default function Home() {
   const [related_cards, set_related_cards] = useState([] as Card[])
   const [display_related, set_display_related] = useState(false)
 
+  const [search_value, set_search_value] = useState("")
+  const deferred_search_value = useDeferredValue(search_value)
 
   const [all_cards, set_all_cards] = useState(Cards as Card[])
 
@@ -64,13 +67,15 @@ export default function Home() {
   const [current_sort, set_current_sort] = useState(emptySorter)
   // shown_cards is a list of all the cards that are shown, not in order
   const [shown_cards, set_shown_cards] = useState(all_cards)
+  // searched_cards is the list after applying search terms
+  const [searched_cards, set_searched_cards] = useState(shown_cards)
   // sorted_cards is the final list as it is displayed
-  const [sorted_cards, set_sorted_cards] = useState(shown_cards)
+  const [sorted_cards, set_sorted_cards] = useState(searched_cards)
 
   // sort cards when the shown cards are modified (e.g different filter was applied)
   // or when the sorting parameters change
   useEffect(() => {
-    set_sorted_cards(shown_cards.toSorted((a: Card, b: Card) => {
+    set_sorted_cards(searched_cards.toSorted((a: Card, b: Card) => {
       let type = current_sort.type as keyof Card
 
       if (type == "rarity")
@@ -86,7 +91,35 @@ export default function Home() {
           a[type] < b[type]
       return val ? 1 : -1
       }))
-  }, [shown_cards, current_sort])
+  }, [searched_cards, current_sort])
+
+  useEffect(() => {
+    const to_search = ["name", "traits", "link", "effects"]
+
+    set_searched_cards(shown_cards.filter((card) => {
+      const search_terms = search_value.split(" ")
+
+      for (const term of search_terms) {
+        if (!to_search.some((k: string) => {
+          let key = k as keyof Card
+
+          if (!card[key]) {
+            return false
+          }
+
+          if (Array.isArray(card[key]))
+            return card[key].some((val) => val.toLowerCase().includes(term.toLowerCase()))
+          else if (typeof card[key] == "string")
+            return card[key].toLowerCase().includes(term.toLowerCase())
+          else if (parseInt(term))
+            return card[key] == parseInt(term)
+          return false
+        }))
+          return false
+      }
+      return true
+    }))
+  }, [shown_cards, search_value])
 
   useEffect(() => {
     set_shown_cards(all_cards.filter((card: Card) => {
@@ -182,82 +215,119 @@ export default function Home() {
   }, [selected_card])
 
   return (
-    <div style={{display: "flex", justifyContent: "center", fontFamily: "Segoe UI"}}>
-      <main style={{display: "flex", flexBasis: "1", flexDirection: "column", alignItems: "center", justifyContent: "center",
-            width: "1024px", maxWidth: "95%", marginTop: "20px", marginBottom: "20px"}}>
-        <div style={{display: "flex", flexDirection: "column", width: "100%"}} >
-          {"full_id" in selected_card && selected_card["full_id"] ?
-            <>
-              <CardLargeComponent card={selected_card as Card}/>
-              <button onClick={changeDisplayRelated}>{display_related ? "Hide links" : "Display links"}</button>
-              {
-                display_related ?
-                  <>
-                    Cards this links with ({related_cards.length} results):
-                    <div className="cards_container" style={{display: "flex", flexDirection: "row", flexWrap: "wrap", gap: "2px"}}>
-                      {related_cards.map((card) => <CardComponent key={card.full_id} card={card} onCardClick={() => set_selected_card(card)}/>)}
-                    </div>
-                  </> : ""
-              }
-            </>
-          : ""}
-          <div className="dropdown_parent_container">
-            <span className="dropdown_select">
-              Color: <MultiSelect
-                className="dark_text" 
-                hasSelectAll={false}
-                options={Array.from(colors, (source) => ({value: source, label: source}))}
-                value={Array.from(current_filter.color, (source) => ({value: source, label: source}))}
-                labelledBy="Colors"
-                onChange={(new_select: Array<Option>) => selectedFilter("color", new_select)}/>
+    <div style={{display: "flex", flexDirection: "column", justifyContent: "center", fontFamily: "Segoe UI"}}>
+      <div style={{display: "flex", justifyContent: "center"}}>
+        <main style={{display: "flex", flexBasis: "1", flexDirection: "column", alignItems: "center", justifyContent: "center",
+              width: "1024px", maxWidth: "95%", marginTop: "20px", marginBottom: "20px"}}>
+          <div style={{display: "flex", flexDirection: "column", width: "100%"}} >
+            {"full_id" in selected_card && selected_card["full_id"] ?
+              <div style={{marginBottom: "15px"}}>
+                <CardLargeComponent card={selected_card as Card}/>
+                <button style={{marginBottom: "5px", marginRight: "10px"}}
+                  onClick={changeDisplayRelated}>{display_related ? "Hide links" : "Display links"}</button>
+                {
+                  display_related ?
+                    <>
+                      Cards this links with ({related_cards.length} results):
+                      <div className="cards_container" style={{display: "flex", flexDirection: "row", flexWrap: "wrap", gap: "2px"}}>
+                        {related_cards.map((card) => <CardComponent key={card.full_id} card={card} onCardClick={() => set_selected_card(card)}/>)}
+                      </div>
+                    </> : ""
+                }
+              </div>
+            : ""}
+            <input style={{border: "1px solid grey", borderRadius: "5px", padding: "5px"}}
+              type="search" placeholder="Search for a card" spellCheck={false}
+              value={search_value} onChange={(e) => set_search_value(e.target.value)}/>
+            <div className="dropdown_parent_container" style={{flexWrap: "wrap", gap: "10px", marginBottom: "10px"}}>
+              <span className="dropdown_select">
+                Color: <MultiSelect
+                  className="dark_text" 
+                  hasSelectAll={false}
+                  options={Array.from(colors, (source) => ({value: source, label: source}))}
+                  value={Array.from(current_filter.color, (source) => ({value: source, label: source}))}
+                  labelledBy="Colors"
+                  onChange={(new_select: Array<Option>) => selectedFilter("color", new_select)}/>
+              </span>
+              <span className="dropdown_select">
+                Type: <MultiSelect
+                  className="dark_text" 
+                  hasSelectAll={false}
+                  options={Array.from(types, (source) => ({value: source, label: source}))}
+                  value={Array.from(current_filter.type, (source) => ({value: source, label: source}))}
+                  labelledBy="Types"
+                  onChange={(new_select: Array<Option>) => selectedFilter("type", new_select)}/>
+              </span>
+              <span className="dropdown_select">
+                Set: <MultiSelect
+                  className="dark_text" 
+                  hasSelectAll={false}
+                  options={Array.from(sets, (source) => ({value: source, label: source}))}
+                  value={Array.from(current_filter.set, (source) => ({value: source, label: source}))}
+                  labelledBy="Sets"
+                  onChange={(new_select: Array<Option>) => selectedFilter("set", new_select)}/>
+              </span>
+              <span className="dropdown_select">
+                Rarity: <MultiSelect
+                  className="dark_text" 
+                  hasSelectAll={false}
+                  options={Array.from(rarities, (source) => ({value: source, label: source}))}
+                  value={Array.from(current_filter.rarity, (source) => ({value: source, label: source}))}
+                  labelledBy="Rarities"
+                  onChange={(new_select: Array<Option>) => selectedFilter("rarity", new_select)}/>
+              </span>
+              <span className="dropdown_select">
+                Series: <MultiSelect
+                  className="dark_text"
+                  hasSelectAll={false}
+                  options={Array.from(sources, (source) => ({value: source, label: source}))}
+                  value={Array.from(current_filter.source, (source) => ({value: source, label: source}))}
+                  labelledBy="Series"
+                  onChange={(new_select: Array<Option>) => selectedFilter("source", new_select)}/>
+              </span>
+              <span className="dropdown_select">
+                Illustrator: <MultiSelect
+                  className="dark_text"
+                  hasSelectAll={false}
+                  options={Array.from(illustrators, (source) => ({value: source, label: source}))}
+                  value={Array.from(current_filter.illustrator, (source) => ({value: source, label: source}))}
+                  labelledBy="Illustrator"
+                  onChange={(new_select: Array<Option>) => selectedFilter("illustrator", new_select)}/>
+              </span>
+            </div>
+            <span>
+              Sort by <select value={current_sort.type} onChange={selectedSort}>
+                <option value="set">Set</option>
+                <option value="set_number">Set number</option>
+                <option value="rarity">Rarity</option>
+                <option value="name">Name</option>
+                <option value="level">Level</option>
+                <option value="cost">Cost</option>
+                <option value="color">Color</option>
+                <option value="type">Type</option>
+                <option value="ap">AP</option>
+                <option value="hp">HP</option>
+                <option value="source">Source</option>
+              </select>
+              <button onClick={changeSortAsc}>{current_sort.asc ? "↑ Ascending" : "↓ Descending"}</button>
             </span>
-            <span className="dropdown_select">
-              Series: <MultiSelect
-                className="dark_text"
-                hasSelectAll={false}
-                options={Array.from(sources, (source) => ({value: source, label: source}))}
-                value={Array.from(current_filter.source, (source) => ({value: source, label: source}))}
-                labelledBy="Series"
-                onChange={(new_select: Array<Option>) => selectedFilter("source", new_select)}/>
+            <span>
+              <input type='checkbox' id="tokens" onChange={includeTokens}/> 
+              <label htmlFor="tokens"> Include tokens</label>
             </span>
-            <span className="dropdown_select">
-              Illustrator: <MultiSelect
-                className="dark_text"
-                hasSelectAll={false}
-                options={Array.from(illustrators, (source) => ({value: source, label: source}))}
-                value={Array.from(current_filter.illustrator, (source) => ({value: source, label: source}))}
-                labelledBy="Illustrator"
-                onChange={(new_select: Array<Option>) => selectedFilter("illustrator", new_select)}/>
-            </span>
+            
+            <br/>
+            {shown_cards.length} results
           </div>
-          <span>
-            Sort by <select value={current_sort.type} onChange={selectedSort}>
-              <option value="set">Set</option>
-              <option value="set_number">Set number</option>
-              <option value="rarity">Rarity</option>
-              <option value="name">Name</option>
-              <option value="level">Level</option>
-              <option value="cost">Cost</option>
-              <option value="color">Color</option>
-              <option value="type">Type</option>
-              <option value="ap">AP</option>
-              <option value="hp">HP</option>
-              <option value="source">Source</option>
-            </select>
-            <button onClick={changeSortAsc}>{current_sort.asc ? "↑ Ascending" : "↓ Descending"}</button>
-          </span>
-          <span>
-            <input type='checkbox' id="tokens" onChange={includeTokens}/> 
-            <label htmlFor="tokens"> Include tokens</label>
-          </span>
-          
-          <br/>
-          {shown_cards.length} results
-        </div>
-        <div className="cards_container" style={{display: "flex", flexDirection: "row", flexWrap: "wrap", gap: "2px"}}>
-          {sorted_cards.map((card) => <CardComponent key={card.full_id} card={card} onCardClick={() => set_selected_card(card)}/>)}
-        </div>
-      </main>
+          <div className="cards_container" style={{display: "flex", flexDirection: "row", flexWrap: "wrap", gap: "2px"}}>
+            {sorted_cards.map((card) => <CardComponent key={card.full_id} card={card} onCardClick={() => set_selected_card(card)}/>)}
+          </div>
+        </main>
+      </div>
+      <footer style={{color: "grey", margin: "0px 20px 20px 20px"}}>
+        Gundam and its associated trademarks and copyrights are owned by SOTSU SUNRISE, SOTSU SUNRISE MBS, BANDAI.<br/>
+        This project is not affiliated with them or any subsidiaries, and only exists for fan use.
+      </footer>
     </div>
   );
 }
