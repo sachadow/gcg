@@ -8,7 +8,6 @@ import { Card, Option } from "@/app/constants";
 import CardComponent from "./components/card";
 
 import "./page.css";
-import "@tailwindcss/turbopack"
 import CardLargeComponent from "./components/card_large";
 
 interface Sorter {
@@ -183,9 +182,10 @@ export default function Home() {
   }, [selected_card])
 
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 flex-col items-center w-[1024px] max-w-[95%] mt-5 mb-5">
-        <div className="flex flex-col w-[100%]" >
+    <div style={{display: "flex", justifyContent: "center", fontFamily: "Segoe UI"}}>
+      <main style={{display: "flex", flexBasis: "1", flexDirection: "column", alignItems: "center", justifyContent: "center",
+            width: "1024px", maxWidth: "95%", marginTop: "20px", marginBottom: "20px"}}>
+        <div style={{display: "flex", flexDirection: "column", width: "100%"}} >
           {"full_id" in selected_card && selected_card["full_id"] ?
             <>
               <CardLargeComponent card={selected_card as Card}/>
@@ -194,7 +194,7 @@ export default function Home() {
                 display_related ?
                   <>
                     Cards this links with ({related_cards.length} results):
-                    <div className="flex flex-row flex-wrap cards_container" style={{gap: "2px"}}>
+                    <div className="cards_container" style={{display: "flex", flexDirection: "row", flexWrap: "wrap", gap: "2px"}}>
                       {related_cards.map((card) => <CardComponent key={card.full_id} card={card} onCardClick={() => set_selected_card(card)}/>)}
                     </div>
                   </> : ""
@@ -254,7 +254,7 @@ export default function Home() {
           <br/>
           {shown_cards.length} results
         </div>
-        <div className="flex flex-row flex-wrap cards_container" style={{gap: "2px"}}>
+        <div className="cards_container" style={{display: "flex", flexDirection: "row", flexWrap: "wrap", gap: "2px"}}>
           {sorted_cards.map((card) => <CardComponent key={card.full_id} card={card} onCardClick={() => set_selected_card(card)}/>)}
         </div>
       </main>

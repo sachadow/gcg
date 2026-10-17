@@ -1,3 +1,14 @@
+.card_container {
+    width: 144px;
+    height: 144px;
+    overflow: hidden;
+    position:relative;
+}
+
+.relative {
+    position: relative;
+}
+
 .cost_level_container {
     position: relative;
     width: fit-content;
