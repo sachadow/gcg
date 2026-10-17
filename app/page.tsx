@@ -2,8 +2,8 @@
 import { useState, useEffect } from "react";
 import { MultiSelect } from "react-multi-select-component-19";
 
-import Cards from "@/app/data/gundam_cards14102026.json";
-import Tokens from "@/app/data/gundam_tokens12102026.json";
+import Cards from "@/app/data/gundam_cards17102026.json";
+import Tokens from "@/app/data/gundam_tokens17102026.json";
 import { Card, Option } from "@/app/constants";
 import CardComponent from "./components/card";
 
