@@ -10,7 +10,7 @@ export default function CardComponent({card, onCardClick}: {card: Card, onCardCl
     
     return (
     <div className="card_container" onClick={() => onCardClick()}>
-        <img src={process.env.PAGES_BASE_PATH || '' + "/img_thumb/" + card.full_id + ".webp"} alt={card.full_id} 
+        <img src={"img_thumb/" + card.full_id + ".webp"} alt={card.full_id} 
             loading="lazy"
             style={{position: "absolute", objectFit: "cover", objectPosition: "top -5px right 0px"}}/>
         <div className="card_text_container">
