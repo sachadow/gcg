@@ -16,6 +16,9 @@ button {
 }
 
 .cards_container {
+    @media (max-width: 1024px) {
+        justify-content: space-evenly;
+    }
 }
 
 .dark_text {
