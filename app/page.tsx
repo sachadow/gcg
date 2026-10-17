@@ -201,7 +201,7 @@ export default function Home() {
             </>
           : ""}
           <div className="dropdown_parent_container">
-            <span>
+            <span className="dropdown_select">
               Color: <MultiSelect
                 className="dark_text" 
                 hasSelectAll={false}
@@ -210,7 +210,7 @@ export default function Home() {
                 labelledBy="Colors"
                 onChange={(new_select: Array<Option>) => selectedFilter("color", new_select)}/>
             </span>
-            <span>
+            <span className="dropdown_select">
               Series: <MultiSelect
                 className="dark_text"
                 hasSelectAll={false}
@@ -219,7 +219,7 @@ export default function Home() {
                 labelledBy="Series"
                 onChange={(new_select: Array<Option>) => selectedFilter("source", new_select)}/>
             </span>
-            <span>
+            <span className="dropdown_select">
               Illustrator: <MultiSelect
                 className="dark_text"
                 hasSelectAll={false}

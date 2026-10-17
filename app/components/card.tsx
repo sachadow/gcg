@@ -11,8 +11,8 @@ export default function CardComponent({card, onCardClick}: {card: Card, onCardCl
     
     return (
     <div className="size-36 relative" onClick={() => onCardClick()}>
-        <Image src={"/img/" + card.full_id + ".webp"} alt={card.full_id} 
-            fill loading="lazy" sizes="(max-width: 1200px) 33vw, 20vw"
+        <Image src={"/img_thumb/" + card.full_id + ".webp"} alt={card.full_id} 
+            fill loading="lazy"
             style={{objectFit: "cover", objectPosition: "top -5px right 0px"}}/>
         <div className="card_text_container">
             <div className="flex flex-row justify-between">

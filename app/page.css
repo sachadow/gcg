@@ -3,9 +3,16 @@
     flex-direction: row;
     justify-content: space-between;
 
-    span {
-        flex-basis: 30%;
+    .dropdown_select {
+        width: 30%;
     }
+}
+
+button {
+    padding: 3px 5px 5px 5px;
+    border: 1px solid;
+    border-radius: 5px;
+    width: fit-content
 }
 
 .cards_container {
