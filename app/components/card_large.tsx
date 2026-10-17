@@ -5,7 +5,7 @@ export default function CardLargeComponent({card}: {card: Card}) {
     return (
     <div className="big_card_container">
         <div className="image_container">
-            <img src={"/img/" + card.full_id + ".webp"} alt={card.full_id} loading="lazy"/>
+            <img src={process.env.PAGES_BASE_PATH || '' + "/img/" + card.full_id + ".webp"} alt={card.full_id} loading="lazy"/>
         </div>
         <div className="text_container">
             <div>
