@@ -317,7 +317,7 @@ export default function Home() {
             </span>
             
             <br/>
-            {shown_cards.length} results
+            {searched_cards.length} results
           </div>
           <div className="cards_container" style={{display: "flex", flexDirection: "row", flexWrap: "wrap", gap: "2px"}}>
             {sorted_cards.map((card) => <CardComponent key={card.full_id} card={card} onCardClick={() => set_selected_card(card)}/>)}
