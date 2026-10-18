@@ -215,27 +215,41 @@ export default function Home() {
   }, [selected_card])
 
   return (
-    <div style={{display: "flex", flexDirection: "column", justifyContent: "center", fontFamily: "Segoe UI"}}>
+    <div style={{display: "flex", flexDirection: "column", justifyContent: "center", fontFamily: "Segoe UI", colorScheme: "light dark"}}>
       <div style={{display: "flex", justifyContent: "center"}}>
         <main style={{display: "flex", flexBasis: "1", flexDirection: "column", alignItems: "center", justifyContent: "center",
               width: "1024px", maxWidth: "95%", marginTop: "20px", marginBottom: "20px"}}>
+          {"full_id" in selected_card && selected_card["full_id"] ?
+            <div style={{display: "flex", flexDirection: "column", width: "100%", paddingBottom: "15px", position: "sticky", top: "0px", zIndex: "100", backgroundColor: "light-dark(white, #0a0a0a)"}}>
+              <button style={{paddingLeft: "15px", paddingRight: "15px", alignSelf: "center"}}
+                onClick={() => set_selected_card({} as Card)}>
+                X
+              </button>
+              <CardLargeComponent card={selected_card as Card}/>
+              <button style={{marginBottom: "5px", marginRight: "10px"}}
+                onClick={changeDisplayRelated}>{display_related ? "Hide links" : "Display links"}</button>
+              {
+                display_related ?
+                  <>
+                    Cards this links with ({related_cards.length} results):
+                    <div className="cards_container"
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        flexWrap: "wrap",
+                        gap: "2px",
+                        maxHeight: "220px",
+                        overflow: "auto",
+                        scrollbarWidth: "thin",
+                        width: "101%"
+                        }}>
+                      {related_cards.map((card) => <CardComponent noToolTip key={card.full_id} card={card} onCardClick={() => set_selected_card(card)}/>)}
+                    </div>
+                  </> : ""
+              }
+            </div>
+          : ""}
           <div style={{display: "flex", flexDirection: "column", width: "100%"}} >
-            {"full_id" in selected_card && selected_card["full_id"] ?
-              <div style={{marginBottom: "15px"}}>
-                <CardLargeComponent card={selected_card as Card}/>
-                <button style={{marginBottom: "5px", marginRight: "10px"}}
-                  onClick={changeDisplayRelated}>{display_related ? "Hide links" : "Display links"}</button>
-                {
-                  display_related ?
-                    <>
-                      Cards this links with ({related_cards.length} results):
-                      <div className="cards_container" style={{display: "flex", flexDirection: "row", flexWrap: "wrap", gap: "2px"}}>
-                        {related_cards.map((card) => <CardComponent key={card.full_id} card={card} onCardClick={() => set_selected_card(card)}/>)}
-                      </div>
-                    </> : ""
-                }
-              </div>
-            : ""}
             <input style={{border: "1px solid grey", borderRadius: "5px", padding: "5px"}}
               type="search" placeholder="Search for a card" spellCheck={false}
               value={search_value} onChange={(e) => set_search_value(e.target.value)}/>
