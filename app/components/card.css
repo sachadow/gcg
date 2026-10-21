@@ -2,6 +2,11 @@
     width: 144px;
     height: 144px;
     position:relative;
+
+    @media (max-width: 1024px) {
+        width: 115px;
+        height: 115px;
+    }
 }
 
 .relative {
@@ -41,6 +46,10 @@
     writing-mode: vertical-rl;
     transform-origin: center;
     transform: rotate(180deg);
+
+    @media (max-width: 1024px) {
+        font-size: x-small;
+    }
 }
 
 .bottom_container {
@@ -61,6 +70,10 @@
     font-weight: bold;
     line-height:90%;
     align-self: flex-end;
+    
+    @media (max-width: 1024px) {
+        font-size: small;
+    }
 }
 
 .card_text_container {
