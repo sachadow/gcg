@@ -59,7 +59,6 @@ export default function Home() {
   const [display_related, set_display_related] = useState(false)
 
   const [search_value, set_search_value] = useState("")
-  const deferred_search_value = useDeferredValue(search_value)
 
   const [all_cards, set_all_cards] = useState(Cards as Card[])
 
@@ -196,7 +195,7 @@ export default function Home() {
                   return card.traits!.some((trait: string) => link_condition == trait  && (card.ap || card.hp))
                 }
               })))
-        else
+        else if (selected_card.type == "COMMAND" || selected_card.type == "PILOT")
           return card.type == "UNIT" &&
             card.link!.some((link_condition: string) => {
               if (link_condition[0] == "[") {
@@ -324,6 +323,7 @@ export default function Home() {
                 <option value="source">Source</option>
               </select>
               <button onClick={changeSortAsc}>{current_sort.asc ? "↑ Ascending" : "↓ Descending"}</button>
+              <button onClick={() => set_current_filter(emptyFilter)} style={{float: "right"}}>Clear</button>
             </span>
             <span>
               <input type='checkbox' id="tokens" onChange={includeTokens}/> 
