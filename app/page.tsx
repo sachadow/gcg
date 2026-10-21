@@ -221,7 +221,7 @@ export default function Home() {
               width: "1024px", maxWidth: "95%", marginTop: "20px", marginBottom: "20px"}}>
           {"full_id" in selected_card && selected_card["full_id"] ?
             <div style={{display: "flex", flexDirection: "column", width: "100%", paddingBottom: "15px", position: "sticky", top: "0px", zIndex: "100", backgroundColor: "light-dark(white, #0a0a0a)"}}>
-              <button style={{paddingLeft: "15px", paddingRight: "15px", alignSelf: "center"}}
+              <button style={{paddingLeft: "15px", paddingRight: "15px", alignSelf: "end"}}
                 onClick={() => set_selected_card({} as Card)}>
                 X
               </button>

@@ -592,7 +592,7 @@
         "color": "Green",
         "type": "UNIT",
         "effects": [
-            "<Breach 4> (When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)",
+            "<Breach 4> (During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)",
             "【When Paired･(G Generation) Pilot】If there are 2 or more (G Generation) Unit cards in your trash, place 1 rested Resource."
         ],
         "zones": [
@@ -622,7 +622,7 @@
         "color": "Green",
         "type": "UNIT",
         "effects": [
-            "<Breach 5> (When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)",
+            "<Breach 5> (During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)",
             "【During Pair･(G Generation) Pilot】At the end of your turn, you may destroy this Unit. If you do, deploy 3 [Gundam Exia]((G Generation)･AP2･HP2) Unit tokens."
         ],
         "zones": [
@@ -681,7 +681,7 @@
         "color": "Green",
         "type": "UNIT",
         "effects": [
-            "<Breach 3> (When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)",
+            "<Breach 3> (During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)",
             "【Attack】Choose 1 enemy Unit with <Blocker> that is Lv.5 or lower. Deal 2 damage to it."
         ],
         "zones": [
@@ -772,7 +772,7 @@
         "type": "UNIT",
         "effects": [
             "【Deploy・Development 2】You may exile the specified number of (G Generation) cards in your trash from the game. If you do, activate the following effect:",
-            "■Choose 1 friendly (G Generation) Unit. It gains <Breach 1> during this turn.\n(When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)"
+            "■Choose 1 friendly (G Generation) Unit. It gains <Breach 1> during this turn.\n(During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)"
         ],
         "zones": [
             "Space",
@@ -801,7 +801,7 @@
         "color": "Green",
         "type": "UNIT",
         "effects": [
-            "【Once per Turn】When another Unit attacks an enemy Unit, if this Unit is rested, the attacking Unit gains <Breach 2> during this battle.\n(When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)"
+            "【Once per Turn】When another Unit attacks an enemy Unit, if this Unit is rested, the attacking Unit gains <Breach 2> during this battle.\n(During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)"
         ],
         "zones": [
             "Space",
@@ -1002,7 +1002,7 @@
         "color": "Green",
         "type": "UNIT",
         "effects": [
-            "When another friendly (G Generation) Unit that is Lv.3 is deployed, this Unit gains <Breach 1> during this turn.\n(When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)"
+            "When another friendly (G Generation) Unit that is Lv.3 is deployed, this Unit gains <Breach 1> during this turn.\n(During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)"
         ],
         "zones": [
             "Space",
@@ -1147,7 +1147,7 @@
         "color": "Green",
         "type": "UNIT",
         "effects": [
-            "【Deploy】If there are 2 or more enemy players, choose 1 to 3 friendly Units. They gain <Breach 3> during this turn.\n(When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)"
+            "【Deploy】If there are 2 or more enemy players, choose 1 to 3 friendly Units. They gain <Breach 3> during this turn.\n(During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)"
         ],
         "zones": [
             "Space",
@@ -1850,7 +1850,7 @@
         "type": "PILOT",
         "effects": [
             "【Burst】Add this card to your hand.",
-            "While this Unit has <Repair>, it gains <Breach 1>.\n(When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)"
+            "While this Unit has <Repair>, it gains <Breach 1>.\n(During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)"
         ],
         "zones": [
             "-"
@@ -1880,7 +1880,7 @@
         "type": "PILOT",
         "effects": [
             "【Burst】Add this card to your hand.",
-            "【When Linked】Choose 1 friendly (G Generation) Unit. It gains <Breach 1> during this turn.\n(When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)"
+            "【When Linked】Choose 1 friendly (G Generation) Unit. It gains <Breach 1> during this turn.\n(During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)"
         ],
         "zones": [
             "-"
@@ -3365,7 +3365,7 @@
         "color": "Green",
         "type": "UNIT",
         "effects": [
-            "<Breach 4> (When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)",
+            "<Breach 4> (During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)",
             "【Deploy】If there are 10 or more (Zeon)/(Neo Zeon) Unit cards in your trash, deal 4 damage to all Units with <Blocker>."
         ],
         "zones": [
@@ -3423,7 +3423,7 @@
         "color": "Green",
         "type": "UNIT",
         "effects": [
-            "<Breach 4> (When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)",
+            "<Breach 4> (During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)",
             "【Attack】Choose 1 enemy Unit with <Blocker> that is Lv.3 or lower. Destroy it."
         ],
         "zones": [
@@ -3452,7 +3452,7 @@
         "color": "Green",
         "type": "UNIT",
         "effects": [
-            "<Breach 2> (When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)"
+            "<Breach 2> (During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)"
         ],
         "zones": [
             "Space"
@@ -3566,7 +3566,7 @@
         "color": "Green",
         "type": "UNIT",
         "effects": [
-            "【During Pair】This Unit gains <Breach 3>.\n(When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)"
+            "【During Pair】This Unit gains <Breach 3>.\n(During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)"
         ],
         "zones": [
             "Earth"
@@ -3764,7 +3764,7 @@
         "color": "Green",
         "type": "UNIT",
         "effects": [
-            "<Breach 3> (When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)"
+            "<Breach 3> (During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)"
         ],
         "zones": [
             "Earth"
@@ -4141,7 +4141,7 @@
         "color": "Red",
         "type": "UNIT",
         "effects": [
-            "While this Unit has 5 or more AP, it gains <Breach 3>.\n(When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)"
+            "While this Unit has 5 or more AP, it gains <Breach 3>.\n(During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)"
         ],
         "zones": [
             "Space",
@@ -5240,7 +5240,7 @@
         "type": "PILOT",
         "effects": [
             "【Burst】Add this card to your hand.",
-            "While this Unit is (Zeon), it gains <Breach 1>.\n(When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)"
+            "While this Unit is (Zeon), it gains <Breach 1>.\n(During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)"
         ],
         "zones": [
             "-"
@@ -6235,7 +6235,7 @@
         "effects": [
             "【Burst】Deploy this card.",
             "【Deploy】Add 1 of your Shields to your hand.",
-            "【Activate･Action】Rest this Base：Choose 1 friendly (ZAFT) Unit with 5 or more AP. It gains <Breach 3> during this battle.\n(When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)"
+            "【Activate･Action】Rest this Base：Choose 1 friendly (ZAFT) Unit with 5 or more AP. It gains <Breach 3> during this battle.\n(During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)"
         ],
         "zones": [
             "Space"
@@ -6355,7 +6355,7 @@
         "color": "Blue",
         "type": "UNIT",
         "effects": [
-            "<Breach 3> (When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)",
+            "<Breach 3> (During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)",
             "【During Pair･(Cyber-Newtype) Pilot】When one of your (Titans) Units destroys an enemy shield area card with damage, this Unit recovers 2 HP."
         ],
         "zones": [
@@ -6967,7 +6967,7 @@
         "color": "Green",
         "type": "UNIT",
         "effects": [
-            "【Once per Turn】When you place an EX Resource, choose 1 of your (AGE System) Units. It gains <Breach 2> during this turn.\n(When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)"
+            "【Once per Turn】When you place an EX Resource, choose 1 of your (AGE System) Units. It gains <Breach 2> during this turn.\n(During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)"
         ],
         "zones": [
             "Space",
@@ -7112,7 +7112,7 @@
         "color": "Green",
         "type": "UNIT",
         "effects": [
-            "<Breach 3> (When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)"
+            "<Breach 3> (During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)"
         ],
         "zones": [
             "Space",
@@ -7289,7 +7289,7 @@
         "color": "Green",
         "type": "UNIT",
         "effects": [
-            "While another friendly (Zeon) Link Unit is in play, this Unit gains <Breach 5>.\n(When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)"
+            "While another friendly (Zeon) Link Unit is in play, this Unit gains <Breach 5>.\n(During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)"
         ],
         "zones": [
             "Space"
@@ -7405,7 +7405,7 @@
         "color": "Red",
         "type": "UNIT",
         "effects": [
-            "<Breach 1> (When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)",
+            "<Breach 1> (During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)",
             "【Deploy】If there are 3 or less enemy Shields, choose 1 enemy Unit with 5 or less AP. Deal 2 damage to it."
         ],
         "zones": [
@@ -8926,7 +8926,7 @@
         "type": "PILOT",
         "effects": [
             "【Burst】Add this card to your hand.",
-            "【When Paired】Choose 1 of your other (Zeon) Link Units. It gains <Breach 1> during this turn.\n(When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)"
+            "【When Paired】Choose 1 of your other (Zeon) Link Units. It gains <Breach 1> during this turn.\n(During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)"
         ],
         "zones": [
             "-"
@@ -10565,7 +10565,7 @@
         "color": "Blue",
         "type": "UNIT",
         "effects": [
-            "【Activate･Main】【Once per Turn】Exile 3 (Titans) cards from your trash: This Unit gains <Breach 4> during this turn.\n(When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)"
+            "【Activate･Main】【Once per Turn】Exile 3 (Titans) cards from your trash: This Unit gains <Breach 4> during this turn.\n(During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)"
         ],
         "zones": [
             "Space",
@@ -10654,7 +10654,7 @@
         "color": "Green",
         "type": "UNIT",
         "effects": [
-            "<Breach 5> (When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)",
+            "<Breach 5> (During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)",
             "【Attack】Choose 1 enemy Unit with <Blocker>. Deal 5 damage to it."
         ],
         "zones": [
@@ -10893,7 +10893,7 @@
         "color": "Green",
         "type": "UNIT",
         "effects": [
-            "<Breach 3> (When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)"
+            "<Breach 3> (During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)"
         ],
         "zones": [
             "Space",
@@ -12726,7 +12726,7 @@
         "type": "PILOT",
         "effects": [
             "【Burst】Add this card to your hand.",
-            "【During Link】If this is an (AGE System) Unit, it gets AP+1 and <Breach 1>.\n(When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)"
+            "【During Link】If this is an (AGE System) Unit, it gets AP+1 and <Breach 1>.\n(During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)"
         ],
         "zones": [
             "-"
@@ -12786,7 +12786,7 @@
         "type": "PILOT",
         "effects": [
             "【Burst】Add this card to your hand.",
-            "【Attack】Choose 1 of your (Cyclops Team) Units. It gains <Breach 1> during this turn.\n(When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)"
+            "【Attack】Choose 1 of your (Cyclops Team) Units. It gains <Breach 1> during this turn.\n(During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)"
         ],
         "zones": [
             "-"
@@ -14179,7 +14179,7 @@
         "color": "Blue",
         "type": "UNIT",
         "effects": [
-            "<Breach 3> (When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)",
+            "<Breach 3> (During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)",
             "【Activate･Main】【Once per Turn】Rest 1 of your other (League Militaire) Units：Choose 1 enemy Unit with 4 or less HP. Rest it."
         ],
         "zones": [
@@ -14538,7 +14538,7 @@
         "color": "Green",
         "type": "UNIT",
         "effects": [
-            "<Breach 5> (When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)",
+            "<Breach 5> (During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)",
             "【Once per Turn】During your turn, when one of your other (Academy) Units receives damage from an enemy, place 1 EX Resource."
         ],
         "zones": [
@@ -14568,7 +14568,7 @@
         "color": "Green",
         "type": "UNIT",
         "effects": [
-            "<Breach 3> (When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)",
+            "<Breach 3> (During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)",
             "【Destroyed】Look at the top 3 cards of your deck. You may reveal 1 (CB) Unit card that is Lv.5 or lower among them and add it to your hand. Return the remaining cards randomly to the bottom of your deck."
         ],
         "zones": [
@@ -14629,7 +14629,7 @@
         "color": "Green",
         "type": "UNIT",
         "effects": [
-            "<Breach 3> (When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)",
+            "<Breach 3> (During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)",
             "During your turn, when you play and activate a (Dawn of Fold) Command card using an EX Resource, you may pair that card from your trash with one of your Units with \"Gundam Lfrith\" in its card name."
         ],
         "zones": [
@@ -14660,7 +14660,7 @@
         "color": "Green",
         "type": "UNIT",
         "effects": [
-            "All your Unit tokens gain <Breach 1>.\n(When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)",
+            "All your Unit tokens gain <Breach 1>.\n(During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)",
             "【During Link】All Units that are Lv.3 or lower other than Unit tokens are deployed rested."
         ],
         "zones": [
@@ -15101,7 +15101,7 @@
         "type": "UNIT",
         "effects": [
             "While you have a red (Super Soldier) Pilot in play, this Unit gains <First Strike>.\n(While this Unit is attacking, it deals damage before the enemy Unit.)",
-            "While you have a green (Super Soldier) Pilot in play, this Unit gains <Breach 3>.\n(When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)"
+            "While you have a green (Super Soldier) Pilot in play, this Unit gains <Breach 3>.\n(During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)"
         ],
         "zones": [
             "Space",
@@ -15309,7 +15309,7 @@
         "color": "Red",
         "type": "UNIT",
         "effects": [
-            "【Attack】If you are attacking a damaged enemy Unit, this Unit gains <Breach 3> during this battle.\n(When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)"
+            "【Attack】If you are attacking a damaged enemy Unit, this Unit gains <Breach 3> during this battle.\n(During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)"
         ],
         "zones": [
             "Earth"
@@ -22174,7 +22174,7 @@
         "color": "Green",
         "type": "UNIT",
         "effects": [
-            "<Breach 5> (When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)",
+            "<Breach 5> (During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)",
             "This Unit may choose an active enemy Unit that is Lv.4 or lower as its attack target."
         ],
         "zones": [
@@ -22490,7 +22490,7 @@
         "color": "Green",
         "type": "COMMAND",
         "effects": [
-            "【Main】Choose 1 of your Units. It gains <Breach 3> during this turn.\n(When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)",
+            "【Main】Choose 1 of your Units. It gains <Breach 3> during this turn.\n(During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)",
             "【Pilot】[Trowa Barton]"
         ],
         "zones": [
@@ -23273,7 +23273,7 @@
         "color": "Red",
         "type": "UNIT",
         "effects": [
-            "<Breach 3> (When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)"
+            "<Breach 3> (During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)"
         ],
         "zones": [
             "Space",
@@ -24122,7 +24122,7 @@
         "color": "Green",
         "type": "UNIT",
         "effects": [
-            "<Breach 1> (When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)",
+            "<Breach 1> (During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)",
             "【Attack】Choose 1 to 2 friendly (Clan) Units. They get AP+2 during this turn."
         ],
         "zones": [
@@ -24415,7 +24415,7 @@
         "effects": [
             "【Burst】Deploy this card.",
             "【Deploy】Add 1 of your Shields to your hand.",
-            "【Once per Turn】When a friendly (Clan) Unit links, it gains <Breach 3> during this turn.\n(When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)"
+            "【Once per Turn】When a friendly (Clan) Unit links, it gains <Breach 3> during this turn.\n(During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)"
         ],
         "zones": [
             "Space"
@@ -25386,7 +25386,7 @@
         "color": "Red",
         "type": "UNIT",
         "effects": [
-            "<Breach 3> (When this Unit's attack destroys an enemy Unit, deal the specified amount of damage to the first card in that opponent's shield area.)",
+            "<Breach 3> (During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)",
             "【When Linked】If there are 5 or more purple cards in your trash, deal 2 damage to all Units with 5 or less AP."
         ],
         "zones": [

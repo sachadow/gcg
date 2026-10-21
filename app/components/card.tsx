@@ -24,8 +24,8 @@ export default function CardComponent({card, onCardClick, noToolTip}: {card: Car
         `${card.traits && card.traits.length ? `Traits: ${card.traits?.join(' ')}\n`: ""}` +
         `${card.link && card.link[0] != "-" ? `Link: ${card.link.join(" ")}` : ""}`;
 
-        return (
-    <div className="card_container" {...(noToolTip ? {} : {datatooltip: `${tooltip_value}`} )} onClick={() => onCardClick()}>
+    return (
+    <div className="card_container" {...(noToolTip ? {} : {"data-tooltip": `${tooltip_value}`} )} onClick={() => onCardClick()}>
         <div style={{width: "100%", height: "100%", position: "relative", overflow: "hidden"}}>
             <img src={"img_thumb/" + card.full_id + ".webp"} alt={card.full_id} 
                 loading="lazy"

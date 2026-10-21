@@ -25,16 +25,17 @@ button {
     color: black;
 }
 
-[datatooltip]:hover::after {
+[data-tooltip]:hover::after {
     color-scheme: light dark;
     z-index: 100;
     display: block;
     position: absolute;
     top: calc(100% + 10px);
     left: calc(mod(calc(sibling-index() - 1), 7) * -12%);
-    content: attr(datatooltip);
+    content: attr(data-tooltip);
     border: 1px solid;
     background-color: light-dark(white, #0a0a0a);
+    color: light-dark(black, white);
     padding: .25em;
     display: inline-block;
     white-space: pre-wrap;

@@ -23,3 +23,35 @@ export interface Option {
   value: string | number,
   label: string
 }
+
+export interface Keyword {
+  name: string,
+  description: string
+}
+
+export const RegularKeywords: Array<Keyword> = [
+  {
+    name: "<Repair [1-9]>",
+    description: "(At the end of your turn, this Unit recovers the specified number of HP.)"
+  },
+  {
+    name: "<High-Maneuver>",
+    description: "(This Unit can't be blocked.)"
+  },
+  {
+    name: "<First Strike>",
+    description: "(While this Unit is attacking, it deals damage before the enemy Unit.)"
+  },
+  {
+    name: "<Breach [1-9]>",
+    description: "(During your turn, when this Unit destroys an enemy Unit with battle damage, deal the specified amount of damage to the first card in that opponent's shield area.)"
+  },
+  {
+    name: "<Suppression>",
+    description: "(Damage to Shields by an attack is dealt to the first 2 cards simultaneously.)"
+  },
+  {
+    name: "<Blocker>",
+    description: "(Rest this Unit to change the attack target to it.)"
+  }
+]
