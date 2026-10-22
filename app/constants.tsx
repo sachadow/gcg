@@ -29,6 +29,18 @@ export interface Keyword {
   description: string
 }
 
+export interface Alt {
+  set: string,
+  set_number: string,
+  full_id: string,
+  rarity: string,
+  alt_type: string,
+  where_to_get: string,
+  image_link: string,
+  illustrator: string | null,
+  file_path: string
+}
+
 export const RegularKeywords: Array<Keyword> = [
   {
     name: "<Repair [1-9]>",

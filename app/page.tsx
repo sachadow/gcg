@@ -1,10 +1,11 @@
 'use client'
-import { useState, useEffect, useDeferredValue } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { MultiSelect } from "react-multi-select-component-19";
 
 import Cards from "@/app/data/gundam_cards17102026.json";
 import Tokens from "@/app/data/gundam_tokens17102026.json";
-import { Card, Option } from "@/app/constants";
+import Alts from "@/app/data/gundam_alts.json"
+import { Card, Option, Alt } from "@/app/constants";
 import CardComponent from "./components/card";
 
 import "./page.css";
@@ -47,18 +48,18 @@ export default function Home() {
   let rarities: Array<string> = ["C", "U", "R", "LR"]
   let sources: Array<string> = [... new Set(Cards.map((card) => card.source))]
   sources.sort()
-  let illustrators: Array<string> = [... new Set(Cards.map((card) => card.illustrator))]
+  let illustrators: Array<string> = [... new Set([... Cards.map((card) => card.illustrator),... Alts.map((alt) => alt.illustrator)])]
   illustrators = illustrators.sort().filter((val) => val != "")
   let types: Array<string> = ["UNIT", "PILOT", "BASE", "COMMAND", "UNIT TOKEN"]
   let zones: Array<string> = ["Space", "Earth"]
   let traits: Array<string> = [... new Set(Cards.flatMap((card) => card.traits))]
   traits.sort()
 
+  const [use_alts, set_use_alts] = useState(false)
+
   const [selected_card, set_selected_card] = useState({} as Card)
   const [related_cards, set_related_cards] = useState([] as Card[])
   const [display_related, set_display_related] = useState(false)
-
-  const [search_value, set_search_value] = useState("")
 
   const [all_cards, set_all_cards] = useState(Cards as Card[])
 
@@ -70,6 +71,8 @@ export default function Home() {
   const [searched_cards, set_searched_cards] = useState(shown_cards)
   // sorted_cards is the final list as it is displayed
   const [sorted_cards, set_sorted_cards] = useState(searched_cards)
+
+  const [search_value, set_search_value] = useState("")
 
   // sort cards when the shown cards are modified (e.g different filter was applied)
   // or when the sorting parameters change
@@ -84,6 +87,9 @@ export default function Home() {
         return 1
       if (!a[type])
         return -1
+
+      if (a[type] == b[type])
+        return a.full_id > b.full_id ? 1 : -1
 
       let val =  current_sort.asc ? 
           a[type] > b[type] :
@@ -121,7 +127,15 @@ export default function Home() {
   }, [shown_cards, search_value])
 
   useEffect(() => {
-    set_shown_cards(all_cards.filter((card: Card) => {
+    let cards_to_use = all_cards
+    if (use_alts) {
+      let alts_to_use = Alts.map((alt) =>{
+        return {... cards_to_use.find((card) => card.full_id == alt.full_id), "illustrator": alt.illustrator, "full_id": alt.file_path.split(".")[0]} as Card
+      })
+      cards_to_use = [... cards_to_use, ... alts_to_use]
+    }
+
+    set_shown_cards(cards_to_use.filter((card: Card) => {
       for (const [k, value] of Object.entries(card)) {
         let key = k as keyof Card
         
@@ -141,7 +155,7 @@ export default function Home() {
       }
       return true
     }))
-  }, [current_filter, all_cards])
+  }, [current_filter, all_cards, use_alts])
 
   const selectedSort = ((e: any) => {
     let new_sort: string = e.target.value
@@ -323,11 +337,15 @@ export default function Home() {
                 <option value="source">Source</option>
               </select>
               <button onClick={changeSortAsc}>{current_sort.asc ? "↑ Ascending" : "↓ Descending"}</button>
-              <button onClick={() => set_current_filter(emptyFilter)} style={{float: "right"}}>Clear</button>
+              <button onClick={() => {set_current_filter(emptyFilter);set_search_value("")}} style={{float: "right"}}>Clear</button>
             </span>
             <span>
               <input type='checkbox' id="tokens" onChange={includeTokens}/> 
               <label htmlFor="tokens"> Include tokens</label>
+            </span>
+            <span>
+              <input type='checkbox' id="alts" onChange={() => set_use_alts(!use_alts)}/> 
+              <label htmlFor="alts"> Include alternate arts</label>
             </span>
             
             <br/>
@@ -338,7 +356,7 @@ export default function Home() {
           </div>
         </main>
       </div>
-      <footer style={{color: "grey", margin: "0px 20px 20px 20px"}}>
+      <footer style={{color: "grey", margin: "0px 20px 20px 20px", fontSize: "small"}}>
         Gundam and its associated trademarks and copyrights are owned by SOTSU SUNRISE, SOTSU SUNRISE MBS, BANDAI.<br/>
         This project is not affiliated with them or any subsidiaries, and only exists for fan use.
       </footer>
