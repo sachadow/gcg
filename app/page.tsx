@@ -99,7 +99,7 @@ export default function Home() {
   }, [searched_cards, current_sort])
 
   useEffect(() => {
-    const to_search = ["name", "traits", "link", "effects"]
+    const to_search = ["full_id", "name", "traits", "link", "effects"]
 
     set_searched_cards(shown_cards.filter((card) => {
       const search_terms = search_value.split(" ")

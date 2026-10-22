@@ -22,7 +22,11 @@ button {
 }
 
 .dark_text {
-    color: black;
+    color: black !important;
+}
+
+.rmsc .search input {
+    color: black !important;
 }
 
 [data-tooltip]:hover::after {
